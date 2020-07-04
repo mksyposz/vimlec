@@ -1,0 +1,172 @@
+\documentclass{beamer}
+\usetheme{Copenhagen}
+\usecolortheme{beaver}
+\usepackage{tikz}
+%\usepackage{hyperref}
+\usepackage{url}
+
+\title{Vim lectures}
+\subtitle{The beginning}
+\author{Michał Syposz}
+\date{\today}
+
+\begin{document}
+    \begin{frame}
+    \titlepage
+    \end{frame}
+    \section{Introduction}
+    \begin{frame}
+    \frametitle{My idea behind the lectures}
+    \begin{itemize}
+        \item Not all lectures will have corresponding presentations.
+        \item I will try to write some sort of note to every lecture.
+        \item Lectures are not going to be long. I don't want to show you 
+            every command and aspect of Vim I know since there's no way you're going
+            to remember and use all of it after one meeting.
+        \item I want to encourage terminal usage, I will put most of the lecture notes
+            on github.\footnote{If someone doesn't remember how to properly use github 
+            it's good opportunity for them. I can send some good materials explaining
+            the usage of git}
+    \end{itemize}
+    \end{frame}
+    \subsection{Vim or NeoVim?}
+    \begin{frame}
+    \frametitle{Vim vs NeoVim}
+        So let's get one thing straight. When we're talking about Vim we don't really 
+        mean Vim. We mean NeoVim.\\
+        Basically Vim creator was close-minded on many features he could add to it.
+        Some developers decided to fork Vim and write extensions themselves. That's how
+        NeoVim was created. It was much faster than normal Vim because for example
+        it was asynchronous. After Vim creator found out about it 
+        he \textbf{copied all the features he was refusing to write for years}. As smart 
+        people we don't want to support anyone like that. Therefore we use NeoVim instead
+        of Vim.\\
+        \textit{Quick disclaimer}: everything I'm going to show you works in Vim as well. 
+    \end{frame}
+    \subsection{Motivation}
+    \begin{frame}
+    \frametitle{Motivation behind learning Vim} 
+    \begin{enumerate}
+        \item Programming is not really about writing code, it's mostly about modyfing it.
+            Vim possibilities makes that super fast.
+        \item Vim is fast AF. I think like only nano is faster to open big files.
+        \item It's almost everywhere. If I SSHed into a server and there would be no
+            Vi/Vim/NeoVim installed I would be surprised.
+        \item You don't need to use mouse anymore. Using mouse a lot is bad for your back 
+            apparently.
+        \item It makes programming smooth, fast and exciting. You'll see.
+    \end{enumerate}
+    \end{frame}
+    \section{The start}
+    \subsection{Modes}
+    \begin{frame}
+    \frametitle{Modes}
+    Vim has modal editing. That means:\\
+    Vim has 4 real modes: Normal, Insert, Visual and Replace.\\
+    There's a fifth called command line mode.
+    \begin{center}
+        \begin{tikzpicture}
+        \node (C) at (-2,4) {CLi};
+        \node (V) at (0,0) {Visual};
+        \node (R) at (4,0) {Replace};
+        \node (I) at (4,4) {Insert};
+        \node (N) at (0,4) {Normal};
+        \draw[<->] (N) -- (I);
+        \draw[<->] (N) -- (R);
+        \draw[<->] (N) -- (V);
+        \draw[<->] (N) -- (C);
+        \end{tikzpicture}
+    \end{center}
+    \end{frame}
+    \begin{frame}
+    \frametitle{Modes}
+    The modes' names are self explanatory.
+    \begin{itemize}
+        \item Normal - this mode is the reason why Vim is so awesome. You can use almost
+            all commands that come with Vim in it.
+        \item Insert - it's for inserting text into the file.
+        \item Replace - it's like insert but it's replacing the text you're writing on.
+        \item Visual - highlighting
+        \item Command line - you can launch Vim commands from it. Even bash or ZSH
+            commands!
+    \end{itemize}
+    \end{frame}
+    \begin{frame}
+    \frametitle{Modes}
+        There's lots of ways you can change modes. I will show you some easy ones for now.\\
+        First of all to change any mode to Normal you press \texttt{Escape}. Since you 
+        use it a lot it might be a good idea to remap it.
+        \footnote{Clue: probably as me you don't use CapsLock a lot.}\\
+        As you can see changing modes is only possible from Normal mode. These are 
+        \textbf{basic} commands to achieve that:\\
+        Entering insert mode: \texttt{i}\\
+        Entering replace mode: \texttt{r,R}\\
+        Entering visual mode: \texttt{v,V,ctrl+v}\\
+        Entering command line mode: \texttt{:}
+    \end{frame}
+    \subsection{Movements}
+    \begin{frame}
+    \frametitle{Fundamental Movements}
+        Better arrow keys in vim\\
+        \begin{center}
+            $\leftarrow$ \texttt{h}\\
+            $\downarrow$ \texttt{j}\\
+            $\uparrow$ \texttt{k}\\
+            $\rightarrow$ \texttt{l}
+        \end{center}
+        If you use touch typing 
+        \footnote{I can provide some tutorial link's for that as well}.
+        As you probably as self respecting programmer should
+        those letters are under your right hand.
+    \end{frame}
+    \begin{frame}
+    \frametitle{Fundamental Movements}
+        Moving over by h/l might be really annoying. Luckily there are easy commands to
+        save us.\\
+        \texttt{w} - jump to the beginning of next word\\
+        \texttt{e} - jump to the end of next word (not used every often)\\
+        \texttt{b} - jump to the beginning of previous word\\
+    \end{frame}
+    \subsection{Basic editing commands}
+    \begin{frame}
+    \frametitle{Basic editing commands}
+        \texttt{y} - stands for yank $\Leftrightarrow$ copy\\
+        \texttt{yy} - copies current line to Default register
+        \footnote{I'm planing to discuss registers later in the lectures}\\
+        \texttt{d} - stands for delete. Deleting some texts puts it in the default
+        register as well\\
+        \texttt{dd} - deletes current line\\
+        \texttt{p} - pastes what's in Default register\\
+        \texttt{u} - undoes
+        When you want to edit something more than a line you can use visual mode. In
+        visual mode movement and editing commands work as in normal.
+    \end{frame}
+    \begin{frame}
+    \frametitle{Combining what we know}
+    Now I'll quickly demonstrate what you can do with commands I've already showed you.
+    Visual + movement + editing commands.
+    \end{frame}
+    \begin{frame}
+    \frametitle{Most important command you'll learn this lecture}
+    You save and exit files in Vim from command line mode. 
+    All you need to write is:\\
+    \texttt{:w} to save the file\\
+    \texttt{:q} to exit Vim\\
+    You can combine these commands to save file and exit vim \texttt{:wq} \\in short 
+    \texttt{:x}. Exiting Vim is not always what you want to do. I'll talk about some 
+    alternatives in later lectures.
+    \end{frame}
+    \section{TBC}
+    \begin{frame}
+    I think these commands are enough to start your adventure with vim.\\
+    For now it's probably best if you just use a plug in for your favorite editor, 
+    since we didn't modify vim at all. We'll get to the point of using vim as your 
+    primary editing tool in couple of meetings. If you feel like learning more vim 
+    by yourself I highly recommend ThePrimeagen on YouTube. He recently made a vim 
+    intro series, which the beginning of these lectures is based upon.
+    \end{frame}
+    \begin{frame}
+        \center
+        See you in the next one
+    \end{frame}
+\end{document}
