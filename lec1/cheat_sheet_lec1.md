@@ -42,8 +42,8 @@ To visual mode
 ## Editing commands
 |Command     |Key binding |
 |------------|------------|
-|copy        |`y`+movement|
-|delete      |`d`+movement|
+|copy        |`y+movement`|
+|delete      |`d+movement`|
 |paste after |`p`         |
 |paste before|`P`         |
 |undo        |`u`         |
