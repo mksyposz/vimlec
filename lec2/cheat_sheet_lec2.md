@@ -9,13 +9,18 @@
 |start searching backwards                      |`?`            |
 |jump to next occurrence in search result       |`n`            |
 |jump to prev occurrence in search result       |`N`            |
-|search for word under cursor forwards (exact)  |`*`            |
-|search for word under cursor backwards (exact) |`#`            |
+|search for word under cursor forwards (EXACT)  |`*`            |
+|search for word under cursor backwards (EXACT) |`#`            |
 |jump to beginning of the line                  |`0`            |
 |jump to first non-blank character              |`^`            |
 |jump to end of the line                        |`$`            |
 |Show help                                      |`:help`        |
 |Show documentation of {command}                |`:help+command`|
- 
+|Exact search word Y in direction X             |`X\<Y\>`       |
+
 Mostly look over my config. Try installing NeoVim.
 Play around with Vim/vimrc. It's not time to use Vim in work YET.
+
+Homework: 
+Install NeoVim from source (package manager is probably behind it (in version))
+Work through my config.

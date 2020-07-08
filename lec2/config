@@ -17,7 +17,6 @@ set splitright
 set inccommand=nosplit
 
 set colorcolumn=80
-autocmd Filetype tex setlocal colorcolumn=90
 set background=dark
 
 if (has("termguicolors"))
@@ -25,4 +24,3 @@ if (has("termguicolors"))
 endif
 
 colorscheme OceanicNext
-
