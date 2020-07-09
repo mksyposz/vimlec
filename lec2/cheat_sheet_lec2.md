@@ -7,6 +7,7 @@
 |jump to last char in line and enter insert mode|`A`            |
 |start searching forwards                       |`/`            |
 |start searching backwards                      |`?`            |
+|Exact search word Y in direction X             |`X\<Y\>`       |
 |jump to next occurrence in search result       |`n`            |
 |jump to prev occurrence in search result       |`N`            |
 |search for word under cursor forwards (EXACT)  |`*`            |
@@ -16,7 +17,6 @@
 |jump to end of the line                        |`$`            |
 |Show help                                      |`:help`        |
 |Show documentation of {command}                |`:help+command`|
-|Exact search word Y in direction X             |`X\<Y\>`       |
 
 Mostly look over my config. Try installing NeoVim.
 Play around with Vim/vimrc. It's not time to use Vim in work YET.
